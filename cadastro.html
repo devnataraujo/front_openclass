@@ -1,66 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro | OpenClass </title>
+    <link rel="icon" href="assets/img/logo_url.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/cadastro.css">
 </head>
 
 <body>
-    <h1>COMECE HOJE</h1>
-    <div class="infos">
-        <p>Já possui cadastro? <a href="login.html">Clique aqui</a></p>        
-    </div>
-    <form class="form-cadastro">
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rd_estudante" value="1">
-            <label class="form-check-label" for="inlineRadio1">Estudante</label>
+    <nav class="navbar fixed-top navbar-light bg-light">
+            <a href="index.html"><i class="bi bi-arrow-left"></i> Voltar</a>
+    </nav>
+    <main>
+        <h2>COMECE HOJE</h2>
+        <form class="form-cadastro">
+            <div class="opcoes-user">
+                <div class="opcoes">
+                    <input type="radio" class="btn-check" name="options" id="rd_estudante" autocomplete="off" value="3">
+                    <label class="btn btn-secondary" for="rd_estudante">
+                        <i class="bi bi-mortarboard-fill"></i>
+                        <div class="texts">
+                            <span class="title"> Sou estudante</span>
+                            <span class="subtitle">Desejo reservar laboratórios</span>
+                        </div>
+                    </label>
+                    <input type="radio" class="btn-check" name="options" id="rd_prof" autocomplete="off" value="2">
+                    <label class="btn btn-secondary" for="rd_prof">
+                        <i class="bi bi-journal-bookmark-fill"></i>
+                        <div class="texts">
+                            <span class="title"> Sou professor(a)</span>
+                            <span class="subtitle">Desejo reservar laboratórios</span>
+                        </div>
+                    </label>
+                    <input type="radio" class="btn-check" name="options" id="rd_instituto" autocomplete="off" value="1">
+                    <label class="btn btn-secondary" for="rd_instituto">
+                        <i class="bi bi-bank2"></i>
+                        <div class="texts">
+                            <span class="title"> Sou instituição</span>
+                            <span class="subtitle">Desejo disponibilizar laboratórios</span>
+                        </div>
+                    </label>
+                </div>
+                <div class="validacao">
+                    <span class="valid-text" id="erro_tipo_user">
+                    </span>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <label for="inp_nome" class="lbl_txt">Nome Completo</label>
+                    <input type="text" class="form-control" id="inp_nome" placeholder="Digite aqui">
+                    <div class="validacao">
+                        <span class="valid-text" id="erro_nome">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="inp_doc"  class="lbl_txt">CPF ou CNPJ</label>
+                    <input type="text" class="form-control" id="inp_doc" placeholder="Digite aqui">
+                    <div class="validacao">
+                        <span class="valid-text" id="erro_doc">
+                        </span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="inp_tel"  class="lbl_txt">Telefone</label>
+                    <input type="text" class="form-control" id="inp_tel" placeholder="Digite aqui">
+                    <div class="validacao">
+                        <span class="valid-text" id="erro_tel">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="inp_email" class="lbl_txt">Email</label>
+                    <input type="text" class="form-control" id="inp_email" placeholder="Digite aqui">
+                    <div class="validacao">
+                        <span class="valid-text" id="erro_email">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="inp_senha"  class="lbl_txt">Senha</label>
+                    <input type="password" class="form-control" id="inp_senha" placeholder="Digite aqui">
+                    <div class="validacao">
+                        <span class="valid-text" id="erro_senha">
+                        </span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="inp_conf_senha"  class="lbl_txt">Confirmar</label>
+                    <input type="password" class="form-control" id="inp_conf_senha" placeholder="Digite aqui">
+                    <div class="validacao">
+                        <span class="valid-text" id="erro_conf_senha">
+                        </span> 
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="button" value="Finalizar" onclick="user.cadastrar()" class="btn-cadastrar">
+                </div>
+            </div>
+        </form>
+        <div class="termos">
+            <p>Ao clicar em Finalizar, você concorda com nossos <a href="#">Termos de Uso</a> e <a href="#">Política de
+                    Privacidade</a>.</p>
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rd_prof" value="2">
-            <label class="form-check-label" for="inlineRadio2">Professor</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rd_instituto" value="3">
-            <label class="form-check-label" for="inlineRadio3">Instituicao</label>
-        </div>
-
-        <hr>
-
-        <div class="form-group">
-            <label for="inp_nome">Nome</label>
-            <input type="text" class="form-control" id="inp_nome" placeholder="Digite aqui">
-        </div>
-        <div class="form-group">
-            <label for="inp_doc">CPF ou CNPJ</label>
-            <input type="text" class="form-control" id="inp_doc" placeholder="Digite aquie">
-        </div>
-        <div class="form-group">
-            <label for="inp_tel">Telefone</label>
-            <input type="text" class="form-control" id="inp_tel" placeholder="Digite aqui">
-        </div>
-        <div class="form-group">
-            <label for="inp_email">Email</label>
-            <input type="text" class="form-control" id="inp_email" placeholder="Digite aqui">
-        </div>
-        <div class="form-group">
-            <label for="inp_senha">Senha</label>
-            <input type="password" class="form-control" id="inp_senha" placeholder="Digite aqui">
-        </div>
-        <div class="form-group">
-            <label for="inp_conf_senha">Confirmar</label>
-            <input type="password" class="form-control" id="inp_conf_senha" placeholder="Digite aqui">
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Finalizar">
-        </div>
-    </form>
-    <div class="termos">
-        <p>Ao clicar em Finalizar, você concorda com nossos <a href="#">Termos de Uso</a> e <a href="#">Política de
-                Privacidade</a>.</p>
-    </div>
+    </main>
+    <footer class="container-fluid">
+        <p>Todos os direitos reservados a <i class="bi bi-mortarboard-fill"></i>
+            <span class="logo-one">open</span>
+            <span class="logo-two">class</span>
+        </p>
+    </footer>
 </body>
-<script src="assets/js/script.js"></script>
+<script src="assets/js/classes/Usuario.js"></script>
 
 </html>
